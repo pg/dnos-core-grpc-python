@@ -58,16 +58,10 @@ DEPS = [
 ]
 
 #### Python
-
-
-
 python_grpc_library(
     name = "onos-core-protobuf-services-proto",
     srcs = [":Services_proto"],
     visibility = ["//visibility:public"],
-    #deps = [
-    #    ":onos-protobuf-models-proto",
-    #],
     deps = DEPS,
 )
 
