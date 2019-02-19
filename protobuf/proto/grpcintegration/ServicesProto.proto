@@ -1,0 +1,46 @@
+syntax = "proto3";
+option java_package = "org.onosproject.grpc.grpcintegration.models";
+
+package grpcintegration;
+
+import "protobuf/proto/net/packet/OutboundPacketProto.proto";
+import "protobuf/proto/net/flow/FlowRuleProto.proto";
+import "protobuf/proto/net/topology/TopologyGraphProto.proto";
+import "protobuf/proto/net/topology/TopologyProto.proto";
+import "protobuf/proto/grpcintegration/EventNotificationProto.proto";
+import "protobuf/proto/grpcintegration/StatusProto.proto";
+import "protobuf/proto/grpcintegration/ControlMessagesProto.proto";
+
+
+
+// Corresponds to PacketOut service
+service PacketOutService {
+    rpc emit (net.packet.OutboundPacketProto) returns (PacketOutStatus);
+}
+
+// Corresponds to FlowRule service
+service FlowService {
+    rpc addFlow (net.flow.FlowRuleProto) returns (FlowServiceStatus);
+    rpc removeFlow (net.flow.FlowRuleProto) returns (FlowServiceStatus);
+}
+
+// Corresponds to Topology service
+service TopoService {
+    rpc getGraph (Empty) returns (net.topology.TopologyGraphProto);
+    rpc currentTopology (Empty) returns (net.topology.TopologyProto);
+    rpc getPaths (getPathRequest) returns (Paths);
+    rpc getHosts (Empty) returns (Hosts);
+}
+
+
+// Corresponds to EventNotification service
+service EventNotification {
+    rpc register (RegistrationRequest) returns (RegistrationResponse);
+    rpc onEvent (Topic) returns (stream Notification);
+
+}
+
+
+
+
+
