@@ -10,6 +10,8 @@ import "protobuf/proto/net/topology/TopologyProto.proto";
 import "protobuf/proto/grpcintegration/EventNotificationProto.proto";
 import "protobuf/proto/grpcintegration/StatusProto.proto";
 import "protobuf/proto/grpcintegration/ControlMessagesProto.proto";
+import "protobuf/proto/net/HostProto.proto";
+import "protobuf/proto/net/HostIdProto.proto";
 
 
 
@@ -24,14 +26,31 @@ service FlowService {
     rpc removeFlow (net.flow.FlowRuleProto) returns (FlowServiceStatus);
 }
 
+
 // Corresponds to Topology service
 service TopoService {
     rpc getGraph (Empty) returns (net.topology.TopologyGraphProto);
     rpc currentTopology (Empty) returns (net.topology.TopologyProto);
     rpc getPaths (getPathRequest) returns (Paths);
-    rpc getHosts (Empty) returns (Hosts);
 }
 
+// Corrsponds to Host Service
+service HostService {
+    rpc getHosts (Empty) returns (Hosts);
+    rpc getHostCount (Empty) returns (HostCountProto);
+    rpc getHost (net.HostIdProto) returns (net.HostProto);
+
+}
+
+// Corresponds to Device Service
+service DeviceService {
+
+}
+
+// Corresponds to Core Service
+service CoreService {
+
+}
 
 // Corresponds to EventNotification service
 service EventNotification {
