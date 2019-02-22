@@ -9,6 +9,7 @@ import "protobuf/proto/net/HostProto.proto";
 import "protobuf/proto/net/topology/ClusterIdProto.proto";
 import "protobuf/proto/net/topology/TopologyClusterProto.proto";
 import "protobuf/proto/net/topology/TopologyProto.proto";
+import "protobuf/proto/net/PortProto.proto";
 
 message Empty {
 
@@ -43,4 +44,18 @@ message Hosts {
 
 message HostCountProto {
     int32 count = 1;
+}
+
+
+// Related to DeviceService
+message DeviceCountProto {
+    int32 count = 1;
+}
+
+message Devices {
+    repeated net.DeviceProto device = 1;
+}
+
+message Ports {
+    repeated net.PortProto port = 1;
 }

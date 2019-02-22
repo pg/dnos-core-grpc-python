@@ -77,13 +77,14 @@ proto_library(
     srcs = ["grpcintegration/ControlMessagesProto.proto"],
     proto_source_root = PROTO_SOURCE_ROOT,
     deps = [
-        ":ClusterId_proto",
-        ":Device_proto",
-        ":Host_proto",
-        ":Path_proto",
-        ":TopologyCluster_proto",
-        ":Topology_proto",
-    ],
+             ":ClusterId_proto",
+             ":Device_proto",
+             ":Host_proto",
+             ":Path_proto",
+             ":Port_proto",
+             ":TopologyCluster_proto",
+             ":Topology_proto",
+         ],
 )
 
 
@@ -111,17 +112,20 @@ proto_library(
     proto_source_root = PROTO_SOURCE_ROOT,
     visibility = ["//visibility:public"],
     deps = [
-        ":Device_proto",
-        ":EventNotification_proto",
-        ":FlowRule_proto",
-        ":OutboundPacket_proto",
-        ":Status_proto",
-        ":TopologyGraph_proto",
-        ":Topology_proto",
-        ":ControlMessages_proto",
-        ":HostId_proto",
-        ":Host_proto",
-    ],
+                  ":ConnectPoint_proto",
+                  ":ControlMessages_proto",
+                  ":DeviceId_proto",
+                  ":Device_proto",
+                  ":EventNotification_proto",
+                  ":FlowRule_proto",
+                  ":HostId_proto",
+                  ":Host_proto",
+                  ":OutboundPacket_proto",
+                  ":Port_proto",
+                  ":Status_proto",
+                  ":TopologyGraph_proto",
+                  ":Topology_proto",
+              ],
 )
 
 ### net ###
