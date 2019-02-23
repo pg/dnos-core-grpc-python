@@ -69,3 +69,9 @@ message FlowRules {
 message FlowRuleCount {
     int32 count = 1;
 }
+
+
+// Related to CoreService
+message AppName {
+    string appname = 1;
+}
