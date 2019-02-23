@@ -10,6 +10,7 @@ import "protobuf/proto/net/topology/ClusterIdProto.proto";
 import "protobuf/proto/net/topology/TopologyClusterProto.proto";
 import "protobuf/proto/net/topology/TopologyProto.proto";
 import "protobuf/proto/net/PortProto.proto";
+import "protobuf/proto/net/flow/FlowRuleProto.proto";
 
 message Empty {
 
@@ -58,4 +59,13 @@ message Devices {
 
 message Ports {
     repeated net.PortProto port = 1;
+}
+
+// Related to FlowService
+message FlowRules {
+    repeated net.flow.FlowRuleProto flowrule = 1;
+}
+
+message FlowRuleCount {
+    int32 count = 1;
 }

@@ -84,6 +84,7 @@ proto_library(
              ":Port_proto",
              ":TopologyCluster_proto",
              ":Topology_proto",
+             ":FlowRule_proto",
          ],
 )
 
