@@ -27,8 +27,6 @@ service PacketOutService {
 
 // Corresponds to FlowRule service
 service FlowService {
-    rpc addFlow (net.flow.FlowRuleProto) returns (FlowServiceStatus);
-    rpc removeFlow (net.flow.FlowRuleProto) returns (FlowServiceStatus);
     rpc applyFlowRules (FlowRules) returns (FlowServiceStatus);
     rpc removeFlowRules (FlowRules) returns (FlowServiceStatus);
     rpc getFlowRuleCount (Empty) returns (FlowRuleCount);
