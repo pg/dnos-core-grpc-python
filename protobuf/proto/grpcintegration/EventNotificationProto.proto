@@ -5,6 +5,7 @@ package grpcintegration;
 
 import "protobuf/proto/net/packet/PacketContextProto.proto";
 import "protobuf/proto/net/link/LinkEventProto.proto";
+import "protobuf/proto/protocols/openflow/OpenFlowPacketContextProto.proto";
 
 message RegistrationRequest {
     string clientId = 1;
@@ -18,6 +19,7 @@ message RegistrationResponse {
 enum topicType {
     PACKET_EVENT = 0;
     LINK_EVENT = 1;
+    OPENFLOW_PACKET_CTX = 2;
 }
 
 message Topic {
@@ -32,6 +34,7 @@ message Notification {
     oneof event {
         net.packet.PacketContextProto packetContext = 4;
         net.link.LinkNotificationProto linkEvent = 5;
+        protocols.openflow.OpenFlowPacketContextProto openFlowPacketContext = 6;
 
     }
 }
